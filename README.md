@@ -1,16 +1,43 @@
-# weather_app
+# Weather App Flutter
 
-A new Flutter project.
+Una semplice applicazione meteo sviluppata in Flutter che mostra le previsioni del tempo attuali e future utilizzando l'API di OpenWeatherMap.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## Caratteristiche
 
-A few resources to get you started if this is your first Flutter project:
+- Visualizzazione della temperatura attuale, condizioni meteo e informazioni aggiuntive (umidità, pressione, velocità del vento)
+- Ricerca città manuale
+- Ottenimento della posizione attuale tramite geolocalizzazione
+- Previsioni orarie con icone meteo
+- Supporto tema chiaro/scuro (toggle tema)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Tecnologie usate
+
+- Flutter
+- Dart
+- OpenWeatherMap API
+- Geolocator per la posizione
+- Package intl per la formattazione delle date
+- Weather Icons per le icone meteo
+
+---
+
+## Come usare
+
+1. Clona il repository:
+   ```bash
+   git clone https://github.com/tuo-username/weather_app.git
+   cd weather_app
+
+2. Installa le dipendenze:
+    flutter pub get
+
+3. Inserisci la tua API key di OpenWeatherMap in stuff.dart (o dove la gestisci):
+    const String openWeatherAPIKey = 'LA_TUA_API_KEY';
+
+4. Avvia l'app:
+    flutter run
