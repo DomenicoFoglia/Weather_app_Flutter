@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:weather_app/stuff.dart';
 import 'package:weather_icons/weather_icons.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class WeatherScreen extends StatefulWidget {
   final VoidCallback onToggleTheme;
@@ -408,6 +409,35 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         value: currentPressure.toString(),
                       ),
                     ],
+                  ),
+                  const SizedBox(height: 12),
+                  GestureDetector(
+                    onTap: () async {
+                      final Uri url = Uri.parse(
+                        'https://github.com/DomenicoFoglia',
+                      );
+                      if (await canLaunchUrl(url)) {
+                        await launchUrl(
+                          url,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      } else {
+                        throw 'Impossibile aprire il link';
+                      }
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(12),
+                      color: Colors.grey[800],
+                      child: Text(
+                        "Domenico Foglia 2025 • GitHub",
+                        style: TextStyle(
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
                 ],
               ),
