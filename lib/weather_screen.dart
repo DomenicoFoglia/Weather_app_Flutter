@@ -20,22 +20,22 @@ class WeatherScreen extends StatefulWidget {
 
 class _WeatherScreenState extends State<WeatherScreen> {
   // Funzione per convertire le condizioni in icone
-  IconData getWeatherIcon(String condition) {
+  Widget getWeatherIcon(String condition) {
     switch (condition) {
       case 'Clear':
-        return Icons.wb_sunny;
+        return Icon(Icons.wb_sunny, color: Colors.amber);
       case 'Clouds':
-        return Icons.cloud;
+        return Icon(Icons.cloud);
       case 'Rain':
-        return WeatherIcons.rain;
+        return Icon(WeatherIcons.rain, color: Colors.lightBlueAccent);
       case 'Snow':
-        return WeatherIcons.snow;
+        return Icon(WeatherIcons.snow);
       case 'Thunderstorm':
-        return WeatherIcons.thunderstorm;
+        return Icon(WeatherIcons.thunderstorm, color: Colors.blueGrey);
       case 'Drizzle':
-        return WeatherIcons.sprinkle;
+        return Icon(WeatherIcons.sprinkle);
       default:
-        return WeatherIcons.day_fog;
+        return Icon(WeatherIcons.day_fog);
     }
   }
 
@@ -330,10 +330,18 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 ),
                                 const SizedBox(height: 16),
                                 currentSky == 'Clear'
-                                    ? Icon(Icons.wb_sunny, size: 64)
+                                    ? Icon(
+                                        Icons.wb_sunny,
+                                        size: 64,
+                                        color: Colors.amber,
+                                      )
                                     : currentSky == 'Clouds'
                                     ? Icon(Icons.cloud, size: 64)
-                                    : BoxedIcon(WeatherIcons.rain, size: 64),
+                                    : BoxedIcon(
+                                        WeatherIcons.rain,
+                                        size: 64,
+                                        color: Colors.blue,
+                                      ),
                                 const SizedBox(height: 16),
                                 Text(
                                   currentSky,
@@ -386,17 +394,17 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     children: [
                       AdditionalInformation(
                         icon: Icons.water_drop,
-                        label: 'Humidity',
+                        label: 'Umidità',
                         value: currentHumidity.toString(),
                       ),
                       AdditionalInformation(
                         icon: Icons.air,
-                        label: 'Wind Speed',
+                        label: 'Vento',
                         value: '$windSpeed km/h',
                       ),
                       AdditionalInformation(
                         icon: Icons.beach_access,
-                        label: 'Pressure',
+                        label: 'Pressione',
                         value: currentPressure.toString(),
                       ),
                     ],
